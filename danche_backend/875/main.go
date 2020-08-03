@@ -35,7 +35,14 @@ func canEatAllBanas(piles []int, H int, k int)bool {
 	// 1. range piles  piles[i]/k向上取整数  Math.cell
 	// 2. 加起来
 	// 3. 是否小于等于H
-	return true
+	sumTime := 0.0
+	for i := 0; i < len(piles); i++ {
+		sumTime = math.Ceil(float64(piles[i])/float64(k)) + sumTime
+	}
+	if sumTime <= float64(H) {
+		return true
+	}
+	return false
 }
 
 func maxPiles(piles []int) int {
